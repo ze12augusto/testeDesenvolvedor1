@@ -26,11 +26,27 @@ public class CoordinateTest {
     }
     
     @Test
-    public void testMoveToDirectionFromEWithDirectionWAndX0MustReturnX1Negative() {
-        System.out.println("testMoveToDirectionFromEWithDirectionWAndX0MustReturnX1Negative");
-        Coordinate coordinate = new Coordinate(0,0, Direction.E, map);
+    public void testMoveToDirectionFromSWithDirectionNAndY0MustReturnY1() {
+        System.out.println("testMoveToDirectionFromSWithDirectionNAndY0MustReturnY1");
+        Coordinate coordinate = new Coordinate(0, 0, Direction.S, map);
+        coordinate.moveToDirection(Direction.N);
+        assertEquals("Incorrect coodinate y!", (long) 1, (long) coordinate.getY());
+    }
+    
+    @Test
+    public void testMoveToDirectionFromWWithDirectionEAndX0MustReturnX1() {
+        System.out.println("testMoveToDirectionFromWWithDirectionEAndX0MustReturnX1");
+        Coordinate coordinate = new Coordinate(0, 0, Direction.W, map);
+        coordinate.moveToDirection(Direction.E);
+        assertEquals("Incorrect coodinate x!", (long) 1, (long) coordinate.getX());
+    }
+    
+    @Test
+    public void testMoveToDirectionFromEWithDirectionWAndX0MustReturnX0() {
+        System.out.println("testMoveToDirectionFromEWithDirectionWAndX0MustReturnX0");
+        Coordinate coordinate = new Coordinate(0, 1, Direction.E, map);
         coordinate.moveToDirection(Direction.W);
-        assertEquals("Incorrect coodinate y!", (long) 0, (long) coordinate.getX());
+        assertEquals("Incorrect coodinate x!", (long) 0, (long) coordinate.getX());
     }
     
 }
